@@ -6,12 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/<your-repo>/ngrok-deployment'
-    targetRevision: HEAD
-    path: overlays/prod  # Points to the 'prod' overlay for Kustomize
+    repoURL: 'https://github.com/muneerkh/ngrok-deployment'
+    targetRevision: main
+    path: overlays/dev  # Points to the 'prod' overlay for Kustomize
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: ngrok-prod
+    namespace: ngrok-dev
   syncPolicy:
     automated:
       prune: true
