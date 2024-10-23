@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: ngrok-route
+spec:
+  to:
+    kind: Service
+    name: ngrok-service
+  port:
+    targetPort: http
+  tls:
+    termination: edge

@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ngrok
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/<your-repo>/ngrok-deployment'
+    targetRevision: HEAD
+    path: overlays/prod  # Points to the 'prod' overlay for Kustomize
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: ngrok-prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
