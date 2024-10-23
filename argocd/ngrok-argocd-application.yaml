@@ -8,7 +8,9 @@ spec:
   source:
     repoURL: 'https://github.com/muneerkh/ngrok-deployment'
     targetRevision: main
-    path: overlays/dev  # Points to the 'prod' overlay for Kustomize
+    path: overlays/dev
+    kustomize:
+      namePrefix: ngrok-
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: ngrok-dev
